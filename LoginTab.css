@@ -1,5 +1,5 @@
 :root {
-    --accent-color: #8672FF;
+    --accent-color: #007bff;
     --base-color: white;
     --text-color: #2E2B41;
     --input-color: #F3F0FF;
@@ -157,6 +157,12 @@ form button, #guestAccoutButton, #LoginButton {
     transition: 150ms ease;
 }
 
+.error-message {
+    color: #f06272;
+    font-size: 0.875rem;
+    margin-top: 5px;
+}
+
 form button:hover, #guestAccoutButton:hover, #LoginButton:hover {
     background-color: var(--text-color);
 }
@@ -197,10 +203,43 @@ a:hover {
     text-decoration: underline;
 }
 
-@media(max-width: 1100px) {
+@media (max-width: 768px) {
     .loginORsignup {
-        width: min(600px, 100%);
-        border-radius: 0;
+        flex-direction: column;
+        width: 90%;
+        padding: 5%;
+    }
+
+    .Signup, .login {
+        padding: 10% 5%;
+        border-radius: 20px;
+        width: 100%;
+    }
+
+    .SignupArea, .LoginArea {
+        padding: 5%;
+    }
+
+    .navTabs {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .navTabs a {
+        font-size: 14px;
+    }
+
+    #signup {
+        font-size: 2rem;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    form button, #guestAccoutButton, #LoginButton {
+        padding: .85em 2em;
     }
 }
 
@@ -215,3 +254,5 @@ form div.incorrect input {
 #error-message {
     color: #f06272;
 }
+
+

@@ -4,7 +4,7 @@
 }
 
 body{
-    margin: 2%;
+    overflow: hidden;
 }
 
 .navBar {
@@ -35,10 +35,81 @@ body{
     font-weight: bold;
 }
 
-
-/* For Chrome, Safari, Edge */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 5%;
+    padding: 5%;
 }
+
+.card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    width: 50%;
+    padding: 2%;
+}
+
+.card:hover {
+    transition: 150ms ease;
+    transform: translateY(-5px);
+}
+
+.card-title {
+    font-size: 1.5em;
+    font-weight: 600;
+    text-transform: capitalize;
+    text-align: left;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card img {
+    width: 100%;
+    height: 50%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #666;
+    font-size: 1em;
+    text-align:  justify;
+}
+
+#reportButton{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.card button {
+    margin-top: 5%;
+    border: none;
+    border-radius: 5px;
+    padding: .85em 2em;
+    background-color: #007bff;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 150ms ease;
+}
+
+.card button:hover {
+    background-color: #2E2B41;
+}
+
+.card button:focus {
+    outline: none;
+    border-color: #2E2B41;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
