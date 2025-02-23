@@ -6,18 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My City</title>
     <link rel="stylesheet" href="ReportTab.css">
+    <script src="navbar.js" defer></script>
 </head>
 
 <body>
     <div class="navBar">
-        <img src="Images/Web-Logo.webp" alt="Website Logo" id="Web-Logo">
+        <img src="Images/Web-Logo.jpg" alt="Website Logo" id="Web-Logo">
 
         <div class="navTabs">
-            <a href="HomeTab.html">🏠 Home</a>
-            <a href="ReportTab.html">📸 Report an Issue</a>
-            <a href="">📋 My Reports</a>
-            <a href="">📞 Contact Us</a>
-            <a href="LoginTab.html">⚙️ Login / Sign Up</a>
+            <div>
+                <svg id="home_icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    style="fill: #007bff;">
+                    <path
+                        d="M12.74 2.32a1 1 0 0 0-1.48 0l-9 10A1 1 0 0 0 3 14h2v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7h2a1 1 0 0 0 1-1 1 1 0 0 0-.26-.68z">
+                    </path>
+                </svg>
+                <a href="HomeTab.html"> Home</a>
+            </div>
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    style="fill: #007bff;">
+                    <path d="M12 9c-1.626 0-3 1.374-3 3s1.374 3 3 3 3-1.374 3-3-1.374-3-3-3z"></path>
+                    <path
+                        d="M20 5h-2.586l-2.707-2.707A.996.996 0 0 0 14 2h-4a.996.996 0 0 0-.707.293L6.586 5H4c-1.103 0-2 .897-2 2v11c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2zm-8 12c-2.71 0-5-2.29-5-5s2.29-5 5-5 5 2.29 5 5-2.29 5-5 5z">
+                    </path>
+                </svg>
+                <a href="ReportTab.html">Report an Issue</a>
+            </div>
+            <!-- <div>
+                <a href="">📋 My Reports</a>
+                <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        style="fill: rgba(0, 0, 0, 1);">
+                        <path
+                            d="m20.487 17.14-4.065-3.696a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.085-1.39z">
+                        </path>
+                    </svg> Contact Us</a>
+            </div> -->
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    style="fill: #007bff;">
+                    <path
+                        d="m20.487 17.14-4.065-3.696a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.085-1.39z">
+                    </path>
+                </svg>
+                <a href="">Contact Us</a>
+            </div>
+            <div>
+                <!-- This link will transform into username -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    style="fill: #007bff;">
+                    <path
+                        d="M12 2C6.579 2 2 6.579 2 12s4.579 10 10 10 10-4.579 10-10S17.421 2 12 2zm0 5c1.727 0 3 1.272 3 3s-1.273 3-3 3c-1.726 0-3-1.272-3-3s1.274-3 3-3zm-5.106 9.772c.897-1.32 2.393-2.2 4.106-2.2h2c1.714 0 3.209.88 4.106 2.2C15.828 18.14 14.015 19 12 19s-3.828-.86-5.106-2.228z">
+                    </path>
+                </svg>
+                <a href="LoginTab.html" id="auth-link"> Login / Sign Up</a>
+            </div>
         </div>
     </div>
 
@@ -31,7 +74,7 @@
                 in your area, report it to help ensure safer and smoother travel for
                 everyone.
             </p>
-            <a href="" id="reportButton">
+            <a href="Road_Issue.html" id="reportButton">
                 <button>Report an Issue</button>
             </a>
         </div>
@@ -44,7 +87,7 @@
                 electricity-related issues to help maintain a reliable and secure
                 power supply in your community.
             </p>
-            <a href="" id="reportButton">
+            <a href="Electricity_Issue.html" id="reportButton">
                 <button>Report an Issue</button>
             </a>
         </div>
@@ -57,7 +100,7 @@
                 your neighborhood, report them to keep your surroundings
                 clean and hygienic.
             </p>
-            <a href="" id="reportButton">
+            <a href="Garbage_Issue.html" id="reportButton">
                 <button>Report an Issue</button>
             </a>
         </div>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="Garbage_Issue.css">
+    <script src="ReportTab.js"></script>
+    <script src="navbar.js" defer></script>
+    <title>Report Issue</title>
+</head>
+
+<body>
+    <div class="navBar">
+        <img src="Images/Web-Logo.jpg" alt="Website Logo" id="Web-Logo">
+
+        <div class="navTabs">
+            <div>
+                <svg id="home_icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    style="fill: #007bff;">
+                    <path
+                        d="M12.74 2.32a1 1 0 0 0-1.48 0l-9 10A1 1 0 0 0 3 14h2v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7h2a1 1 0 0 0 1-1 1 1 0 0 0-.26-.68z">
+                    </path>
+                </svg>
+                <a href="HomeTab.html"> Home</a>
+            </div>
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    style="fill: #007bff;">
+                    <path d="M12 9c-1.626 0-3 1.374-3 3s1.374 3 3 3 3-1.374 3-3-1.374-3-3-3z"></path>
+                    <path
+                        d="M20 5h-2.586l-2.707-2.707A.996.996 0 0 0 14 2h-4a.996.996 0 0 0-.707.293L6.586 5H4c-1.103 0-2 .897-2 2v11c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2zm-8 12c-2.71 0-5-2.29-5-5s2.29-5 5-5 5 2.29 5 5-2.29 5-5 5z">
+                    </path>
+                </svg>
+                <a href="ReportTab.html">Report an Issue</a>
+            </div>
+            <!-- <div>
+                <a href="">📋 My Reports</a>
+                <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        style="fill: rgba(0, 0, 0, 1);">
+                        <path
+                            d="m20.487 17.14-4.065-3.696a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.085-1.39z">
+                        </path>
+                    </svg> Contact Us</a>
+            </div> -->
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    style="fill: #007bff;">
+                    <path
+                        d="m20.487 17.14-4.065-3.696a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.085-1.39z">
+                    </path>
+                </svg>
+                <a href="">Contact Us</a>
+            </div>
+            <div>
+                <!-- This link will transform into username -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    style="fill: #007bff;">
+                    <path
+                        d="M12 2C6.579 2 2 6.579 2 12s4.579 10 10 10 10-4.579 10-10S17.421 2 12 2zm0 5c1.727 0 3 1.272 3 3s-1.273 3-3 3c-1.726 0-3-1.272-3-3s1.274-3 3-3zm-5.106 9.772c.897-1.32 2.393-2.2 4.106-2.2h2c1.714 0 3.209.88 4.106 2.2C15.828 18.14 14.015 19 12 19s-3.828-.86-5.106-2.228z">
+                    </path>
+                </svg>
+                <a href="LoginTab.html" id="auth-link"> Login / Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- start report -->
+    <div class="form">
+        <form action="">
+            <h1>Report an Issue</h1>
+            <div class="outer_box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                    style="fill: #007bff;">
+                    <path d="M12 9c-1.626 0-3 1.374-3 3s1.374 3 3 3 3-1.374 3-3-1.374-3-3-3z"></path>
+                    <path
+                        d="M20 5h-2.586l-2.707-2.707A.996.996 0 0 0 14 2h-4a.996.996 0 0 0-.707.293L6.586 5H4c-1.103 0-2 .897-2 2v11c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2zm-8 12c-2.71 0-5-2.29-5-5s2.29-5 5-5 5 2.29 5 5-2.29 5-5 5z">
+                    </path>
+                </svg>
+
+                <div class="inner_box">
+                    <h3>Upload Images</h3>
+
+                    <div class="icon" onclick="showPopup()"> <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24" style="fill: #2E2B41;">
+                            <path d="M12 9c-1.626 0-3 1.374-3 3s1.374 3 3 3 3-1.374 3-3-1.374-3-3-3z"></path>
+                            <path
+                                d="M20 5h-2.586l-2.707-2.707A.996.996 0 0 0 14 2h-4a.996.996 0 0 0-.707.293L6.586 5H4c-1.103 0-2 .897-2 2v11c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2zm-8 12c-2.71 0-5-2.29-5-5s2.29-5 5-5 5 2.29 5 5-2.29 5-5 5z">
+                            </path>
+                        </svg></div>
+
+                    <div class="popup" id="uploadPopup">
+                        <h3>Select Upload Method</h3>
+                        <div id="mobileOptions">
+                            <button onclick="openCamera()">📸 Camera</button>
+                            <button onclick="openGallery()">🖼️ Gallery</button>
+                        </div>
+                        <button onclick="openFiles()">📂 Files</button>
+                        <button onclick="closePopup()">❌ Cancel</button>
+                    </div>
+
+                    <div id="empty_box"><br><br><br><br></div>
+                    <div id="preview-container">
+                        <div id="image-preview"></div>
+                    </div>
+
+                    <input type="file" id="fileInput" accept="image/*" capture="camera" multiple style="display: none;"
+                        onchange="handleImage(this)">
+                    <input type="file" id="galleryInput" accept="image/*" multiple style="display: none;"
+                        onchange="handleImage(this)">
+                </div>
+            </div>
+
+            <div class="outer_box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"
+                    style="fill: #007bff;">
+                    <path
+                        d="M4 18h2v4.081L11.101 18H16c1.103 0 2-.897 2-2V8c0-1.103-.897-2-2-2H4c-1.103 0-2 .897-2 2v8c0 1.103.897 2 2 2z">
+                    </path>
+                    <path
+                        d="M20 2H8c-1.103 0-2 .897-2 2h12c1.103 0 2 .897 2 2v8c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2z">
+                    </path>
+                </svg>
+
+                <div class="inner_box">
+                    <h3>Report an issue</h3>
+                    <textarea id="description" placeholder="Type your issue here..." required></textarea>
+                </div>
+            </div>
+
+            <div class="outer_box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                    style="fill: #007bff;">
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path
+                        d="M13 4.069V2h-2v2.069A8.01 8.01 0 0 0 4.069 11H2v2h2.069A8.008 8.008 0 0 0 11 19.931V22h2v-2.069A8.007 8.007 0 0 0 19.931 13H22v-2h-2.069A8.008 8.008 0 0 0 13 4.069zM12 18c-3.309 0-6-2.691-6-6s2.691-6 6-6 6 2.691 6 6-2.691 6-6 6z">
+                    </path>
+                </svg>
+                <div class="inner_box">
+                    <h3>Enter location</h3>
+                    <input type="text" id="location" placeholder="Enter location...">
+                </div>
+            </div>
+
+            <div class="outer_box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                    style="fill: #007bff;">
+                    <path
+                        d="m20.487 17.14-4.065-3.696a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.085-1.39z">
+                    </path>
+                </svg>
+
+                <div class="inner_box">
+                    <h3>Enter your phone number</h3>
+                    <input type="number" id="phone_number" placeholder="Your phone number (optional)" maxlength="11">
+                </div>
+            </div>
+            <button type="submit">Submit Issue</button>
+        </form>
+    </div>
+    <!-- end report -->
+</body>
+
+</html>
