@@ -31,7 +31,7 @@
                         d="M20 5h-2.586l-2.707-2.707A.996.996 0 0 0 14 2h-4a.996.996 0 0 0-.707.293L6.586 5H4c-1.103 0-2 .897-2 2v11c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2zm-8 12c-2.71 0-5-2.29-5-5s2.29-5 5-5 5 2.29 5 5-2.29 5-5 5z">
                     </path>
                 </svg>
-                <a href="ReportTab.html">Report an Issue</a>
+                <a href="Report_an-Issue/ReportTab.html">Report an Issue</a>
             </div>
             <!-- <div>
                 <a href="">📋 My Reports</a>
@@ -49,7 +49,7 @@
                         d="m20.487 17.14-4.065-3.696a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.085-1.39z">
                     </path>
                 </svg>
-                <a href="Contactus_Tab.html">Contact Us</a>
+                <a href="Contactus/Contactus_Tab.html">Contact Us</a>
             </div>
             <div>
                 <!-- This link will transform into username -->
@@ -59,10 +59,78 @@
                         d="M12 2C6.579 2 2 6.579 2 12s4.579 10 10 10 10-4.579 10-10S17.421 2 12 2zm0 5c1.727 0 3 1.272 3 3s-1.273 3-3 3c-1.726 0-3-1.272-3-3s1.274-3 3-3zm-5.106 9.772c.897-1.32 2.393-2.2 4.106-2.2h2c1.714 0 3.209.88 4.106 2.2C15.828 18.14 14.015 19 12 19s-3.828-.86-5.106-2.228z">
                     </path>
                 </svg>
-                <a href="LoginTab.html" id="auth-link"> Login / Sign Up</a>
+                <a href="Login_Signup/Login/LoginTab.html" id="auth-link"> Login / Sign Up</a>
             </div>
         </div>
     </div>
+
+    <div class="reports-container" id="reportsContainer">
+        <!-- Reports will be dynamically added here -->
+    </div>
+
+    <script>
+        // Add this to HomeTab.html before closing </body>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadReports();
+        });
+
+        function loadReports() {
+            const reports = JSON.parse(localStorage.getItem('reports')) || [];
+            const container = document.getElementById('reportsContainer');
+
+            container.innerHTML = reports.reverse().map(report => `
+                <div class="report-card">
+                    <div class="report-header">
+                        <div class="report-username">${report.username}</div>
+                        <div class="report-category">${report.category}</div>
+                    </div>
+                    ${report.images.length ? `
+                    <div class="report-images">
+                        ${report.images.map(img => `<img src="${img}">`).join('')}
+                    </div>` : ''}
+                    <h3>About Issue</h3>
+                    <div class="report-content">${report.description}</div>
+                    <h3>Location</h3>
+                    <div class="report-location">📍 ${report.location}</div>
+                    ${report.phone ? `<div class=""><h3>Phone Number</h3></div>` : ''}
+                    ${report.phone ? `<div class="report-phone">📞 ${report.phone}</div>` : ''}
+                </div>
+            `).join('');
+        }
+    </script>
+
+    <footer>
+        <div class="Content">
+            <div class="about">
+                <h3>About Us</h3>
+                <p>At my City webpage/website, we<br />are providing a platform for peoples,<br />where they were
+                    submit<br />
+                    applications/complsind of their problem likes; road issues <br />electricity issues or garbage
+                    issues.<br />so keep contact with us, we are here for you.</p>
+            </div>
+            <div class="contact">
+                <h3>Contact info</h3>
+                <p>Phone: +923298974626 <br />
+                    Email: mycitymithi@gmail.com<br />
+                    Address: Near Al-Mehdi Hospital,<br />
+                    Mithi Sindh Pakistan</p>
+            </div>
+            <div class="follow">
+                <h3>Follow Us</h3>
+                <a href=""><img src="./images/whatsapp.png" alt="whatsapp" title="whatsapp" id="img"></a>
+                <a href=""><img src="./images/facebook.png" alt="facebook" title="facebook" id="img"></a>
+                <a href=""><img src="./images/Insta.png" alt="instagram" title="instagram" id="img"></a>
+                <a href=""><img src="./images/Youtube.png" alt="Youtube" title="youtube" id="img"></a>
+                <a href=""><button id="button">More Details</button></a>
+            </div>
+            <div class="develop">
+                <h3>Developed by</h3>
+            </div>
+        </div>
+        <div class="end">
+            <p>© 2025 My City , Gibce Mithi. All rights reserved</p>
+        </div>
+    </footer>
 </body>
 
 </html>

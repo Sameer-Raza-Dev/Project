@@ -5,23 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My City</title>
-    <link rel="stylesheet" href="ReportTab.css">
-    <script src="navbar.js" defer></script>
+    <link rel="stylesheet" href="LoginTab.css">
+    <script type="text/javascript" src="../Signup_Login.js" defer></script>
+    <script src="../../navbar.js" defer></script>
 </head>
 
 <body>
     <div class="navBar">
-        <img src="Images/Web-Logo.jpg" alt="Website Logo" id="Web-Logo">
+        <img src="../../Images/Web-Logo.jpg" alt="Website Logo" id="Web-Logo">
 
         <div class="navTabs">
             <div>
                 <svg id="home_icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    style="fill: #007bff;">
+                    style="fill: #007bff;;">
                     <path
                         d="M12.74 2.32a1 1 0 0 0-1.48 0l-9 10A1 1 0 0 0 3 14h2v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7h2a1 1 0 0 0 1-1 1 1 0 0 0-.26-.68z">
                     </path>
                 </svg>
-                <a href="HomeTab.html"> Home</a>
+                <a href="../../HomeTab.html"> Home</a>
             </div>
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -31,7 +32,7 @@
                         d="M20 5h-2.586l-2.707-2.707A.996.996 0 0 0 14 2h-4a.996.996 0 0 0-.707.293L6.586 5H4c-1.103 0-2 .897-2 2v11c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2zm-8 12c-2.71 0-5-2.29-5-5s2.29-5 5-5 5 2.29 5 5-2.29 5-5 5z">
                     </path>
                 </svg>
-                <a href="ReportTab.html">Report an Issue</a>
+                <a href="../../Report_an-Issue/ReportTab.html">Report an Issue</a>
             </div>
             <!-- <div>
                 <a href="">📋 My Reports</a>
@@ -49,7 +50,7 @@
                         d="m20.487 17.14-4.065-3.696a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.085-1.39z">
                     </path>
                 </svg>
-                <a href="Contactus_Tab.html">Contact Us</a>
+                <a href="../../Contactus/Contactus_Tab.html">Contact Us</a>
             </div>
             <div>
                 <!-- This link will transform into username -->
@@ -64,45 +65,42 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="card">
-            <h1 class="card-title">Road Issue</h1>
-            <img src="Images/Road_Issue.jpg" alt="Card Image" />
-            <p>
-                Damaged roads, potholes, and uneven surfaces can cause accidents and
-                inconvenience for drivers and pedestrians. If you notice a road issue
-                in your area, report it to help ensure safer and smoother travel for
-                everyone.
-            </p>
-            <a href="Road_Issue.html" id="reportButton">
-                <button>Report an Issue</button>
-            </a>
-        </div>
-        <div class="card">
-            <h1 class="card-title">Electricity Issue</h1>
-            <img src="Images/Electricity_Issue.jpg" alt="Card Image" />
-            <p>
-                Frequent power outages, broken streetlights, or exposed electrical
-                wires can pose safety hazards and disrupt daily life. Report any
-                electricity-related issues to help maintain a reliable and secure
-                power supply in your community.
-            </p>
-            <a href="Electricity_Issue.html" id="reportButton">
-                <button>Report an Issue</button>
-            </a>
-        </div>
-        <div class="card">
-            <h1 class="card-title">Garbage Issue</h1>
-            <img src="Images/Garbage.jpg" alt="Card Image" />
-            <p>
-                Uncollected waste, overflowing bins, or illegal dumping can lead to
-                pollution and health risks. If you spot garbage-related problems in
-                your neighborhood, report them to keep your surroundings
-                clean and hygienic.
-            </p>
-            <a href="Garbage_Issue.html" id="reportButton">
-                <button>Report an Issue</button>
-            </a>
+    <div class="parent">
+        <div class="loginORsignup">
+            <div class="Signup">
+                <h1>Hello, Welcome!</h1>
+                <p>Don't have an account?</p>
+                <a href="../Signup/SignupTab.html">
+                    <button id="LoginButton" type="button">Signup</button>
+                </a>
+                <p id="or">or</p>
+                <a href="../../HomeTab.html">
+                    <button id="guestAccoutButton" type="button">Guest</button>
+                </a>
+            </div>
+            <div class="LoginArea">
+                <h1 id="signup">Login</h1>
+                <p id="error-message"></p>
+                <form id="form">
+                    <div>
+                        <label for="email-input" aria-label="Email">
+                            <span>@</span>
+                        </label>
+                        <input type="email" name="email" id="email-input" placeholder="enter your email" aria-describedby="email-error">
+                    </div>
+                    <p id="email-error" class="error-message"></p>
+                    <div>
+                        <label for="password-input">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                                <path
+                                    d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm240-200q33 0 56.5-23.5T560-360q0-33-23.5-56.5T480-440q-33 0-56.5 23.5T400-360q0 33 23.5 56.5T480-280ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80Z" />
+                            </svg>
+                        </label>
+                        <input type="password" name="password" id="password-input" placeholder="enter your password">
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
         </div>
     </div>
 </body>

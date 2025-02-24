@@ -39,3 +39,41 @@ function handleImage(input) {
         document.getElementById('empty_box').style.display = 'none';
     }
 }
+
+function submitReport(event) {
+    event.preventDefault();
+    
+    // Get user data
+    const registeredUser = JSON.parse(localStorage.getItem('users'))?.find(u => u.loggedIn);
+    const guestUser = JSON.parse(localStorage.getItem('guestUser'));
+    const username = registeredUser?.firstname || guestUser?.username || 'Anonymous';
+
+    // Get form data
+    const description = document.getElementById('description').value;
+    const location = document.getElementById('location').value;
+    const phone = document.getElementById('phone_number').value;
+    const category = document.getElementById('category').value; // Get category from hidden input
+    
+    // Get images
+    const images = Array.from(document.querySelectorAll('#image-preview img'))
+                       .map(img => img.src);
+
+    // Create report object
+    const report = {
+        username,
+        category, // Use the dynamic category
+        description,
+        location,
+        phone: phone || null,
+        images,
+        timestamp: new Date().toISOString()
+    };
+
+    // Save to localStorage
+    const reports = JSON.parse(localStorage.getItem('reports')) || [];
+    reports.push(report);
+    localStorage.setItem('reports', JSON.stringify(reports));
+
+    // Redirect to home page
+    window.location.href = 'HomeTab.html';
+}
