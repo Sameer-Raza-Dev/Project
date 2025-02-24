@@ -218,7 +218,7 @@ function generateRandomUsername() {
 }
 
 function redirectToHome() {
-  window.location.href = 'HomeTab.html';
+  window.location.href = 'index.html';
 }
 
 // ========================

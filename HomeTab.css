@@ -102,7 +102,7 @@ svg{
     color: var(--accent-color);
 }
 
-/* Add this to HomeTab.css */
+/* Add this to index.css */
 .reports-container {
     padding: 20px 5%;
     padding: 10%;
