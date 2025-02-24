@@ -75,5 +75,5 @@ function submitReport(event) {
     localStorage.setItem('reports', JSON.stringify(reports));
 
     // Redirect to home page
-    window.location.href = 'index.html';
+    window.location.href = 'HomeTab.html';
 }

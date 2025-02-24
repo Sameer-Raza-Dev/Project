@@ -189,7 +189,7 @@ td {
 }
 
 .uperr {
-    z-index: 2;
+    z-HomeTab: 2;
     width: 97.5%;
     height: 13.4em;
     border-top-right-radius: 4.6%;
@@ -209,7 +209,7 @@ td {
 }
 
 .downr {
-    z-index: 2;
+    z-HomeTab: 2;
     background-color: rgb(252, 252, 252);
     width: 97.5%;
     height: 16em;
@@ -240,7 +240,7 @@ td {
 }
 
 .uperg {
-    z-index: 2;
+    z-HomeTab: 2;
     width: 97.5%;
     height: 13.4em;
     border-top-right-radius: 4.6%;
@@ -260,7 +260,7 @@ td {
 }
 
 .downg {
-    z-index: 2;
+    z-HomeTab: 2;
     background-color: rgb(252, 252, 252);
     width: 97.5%;
     height: 16em;
@@ -296,7 +296,7 @@ td {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     border-radius: 4px;
     padding: 8px;
-    z-index: 1000;
+    z-HomeTab: 1000;
 }
 
 .user-profile:hover{

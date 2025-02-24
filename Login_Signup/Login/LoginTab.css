@@ -295,7 +295,7 @@ form div.incorrect input {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-HomeTab: 1000;
 }
 
 .modal-content {

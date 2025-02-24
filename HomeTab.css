@@ -77,7 +77,7 @@ svg{
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     border-radius: 4px;
     padding: 8px;
-    z-index: 1000;
+    z-HomeTab: 1000;
 }
 
 .user-profile:hover{
@@ -102,7 +102,7 @@ svg{
     color: var(--accent-color);
 }
 
-/* Add this to index.css */
+/* Add this to HomeTab.css */
 .reports-container {
     padding: 20px 5%;
     padding: 10%;
