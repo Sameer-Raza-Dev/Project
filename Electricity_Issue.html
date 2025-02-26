@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electricity Issue - My City</title>
+    <title>Road Issue - My City</title>
     <link rel="stylesheet" href="HomeTab.css">
-    <link rel="stylesheet" href="Electricity_Issue.css">
+    <link rel="stylesheet" href="Road_Issue.css">
     <link rel="stylesheet" href="Issue_Form.css?v=1">
     <script src="navbar.js" defer></script>
     <script src="reportTab.js" defer></script>
@@ -59,79 +59,85 @@
     <div class="form-container">
         <div class="form-card">
             <form action="" onsubmit="submitReport(event)">
-                <input type="hidden" id="category" value="Electricity Issue">
-                <h1 class="form-title">Report an Electricity Issue</h1>
+                <input type="hidden" id="category" value="Electrcity Issue">
+                <h1 class="form-title">Report a Road Issue</h1>
                 
                 <div class="form-section">
                     <div class="section-header">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path d="M12 9c-1.626 0-3 1.374-3 3s1.374 3 3 3 3-1.374 3-3-1.374-3-3-3z"></path>
                             <path d="M20 5h-2.586l-2.707-2.707A.996.996 0 0 0 14 2h-4a.996.996 0 0 0-.707.293L6.586 5H4c-1.103 0-2 .897-2 2v11c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2zm-8 12c-2.71 0-5-2.29-5-5s2.29-5 5-5 5 2.29 5 5-2.29 5-5 5z"></path>
-                    </svg>
-                    <h3>Upload Images</h3>
-                </div>
-                <div class="upload-area">
-                    <div class="upload-button" onclick="showPopup()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                            <path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"></path>
                         </svg>
-                        <span>Add Photos</span>
+                        <h3>Upload Images</h3>
                     </div>
-                    <div id="preview-container">
-                        <div id="image-preview" class="image-preview-grid"></div>
+                    <div class="upload-area">
+                        <div class="upload-button" onclick="showPopup()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"></path>
+                            </svg>
+                            <span>Add Photos</span>
+                        </div>
+                        <div id="preview-container">
+                            <div id="image-preview" class="image-preview-grid"></div>
+                        </div>
+                    </div>
+
+                    <div class="popup" id="uploadPopup">
+                        <div class="popup-content">
+                            <h3>Select Upload Method</h3>
+                            <div class="popup-options">
+                                <button class="popup-btn camera" onclick="openCamera()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path d="M12 9c-1.626 0-3 1.374-3 3s1.374 3 3 3 3-1.374 3-3-1.374-3-3-3z"></path>
+                                        <path d="M20 5h-2.586l-2.707-2.707A.996.996 0 0 0 14 2h-4a.996.996 0 0 0-.707.293L6.586 5H4c-1.103 0-2 .897-2 2v11c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2zm-8 12c-2.71 0-5-2.29-5-5s2.29-5 5-5 5 2.29 5 5-2.29 5-5 5z"></path>
+                                    </svg>
+                                    Camera
+                                </button>
+                                <button class="popup-btn gallery" onclick="openGallery()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path d="M20 2H8c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 0 0 1.228 0L20 9.044 20.002 18H4z"></path>
+                                    </svg>
+                                    Gallery
+                                </button>
+                            </div>
+                            <button class="popup-btn close" onclick="closePopup()">Cancel</button>
+                        </div>
                     </div>
                 </div>
 
-                <div class="popup" id="uploadPopup">
-                    <div class="popup-content">
-                        <h3>Select Upload Method</h3>
-                        <div class="popup-options">
-                            <button class="popup-btn camera" onclick="openCamera()">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                    <path d="M12 9c-1.626 0-3 1.374-3 3s1.374 3 3 3 3-1.374 3-3-1.374-3-3-3z"></path>
-                                    <path d="M20 5h-2.586l-2.707-2.707A.996.996 0 0 0 14 2h-4a.996.996 0 0 0-.707.293L6.586 5H4c-1.103 0-2 .897-2 2v11c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2zm-8 12c-2.71 0-5-2.29-5-5s2.29-5 5-5 5 2.29 5 5-2.29 5-5 5z"></path>
-                                </svg>
-                                Camera
-                            </button>
-                            <button class="popup-btn gallery" onclick="openGallery()">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                    <path d="M20 2H8c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 0 0 1.228 0L20 9.044 20.002 18H4z"></path>
-                                </svg>
-                                Gallery
-                            </button>
-                        </div>
-                        <button class="popup-btn close" onclick="closePopup()">Cancel</button>
-                    </div>
-                </div>
                 <div class="form-section">
                     <div class="section-header">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path d="M4 18h2v4.081L11.101 18H16c1.103 0 2-.897 2-2V8c0-1.103-.897-2-2-2H4c-1.103 0-2 .897-2 2v8c0 1.103.897 2 2 2z"></path>
                             <path d="M20 2H8c-1.103 0-2 .897-2 2h12c1.103 0 2 .897 2 2v8c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2z"></path>
-                    </svg>
-                    <h3>Issue Description</h3>
+                        </svg>
+                        <h3>Issue Description</h3>
+                    </div>
+                    <div class="input-group">
+                        <textarea id="description" placeholder="Describe the road issue in detail..." required maxlength="500"></textarea>
+                        <div class="char-count"><span id="char-count">0</span>/500</div>
+                    </div>
                 </div>
-                <div class="input-group">
-                    <textarea id="description" placeholder="Describe the road issue in detail..." required maxlength="500"></textarea>
-                    <div class="char-count"><span id="char-count">0</span>/500</div>
-                </div>
+
                 <div class="form-section">
                     <div class="section-header">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <circle cx="12" cy="12" r="4"></circle>
                             <path d="M13 4.069V2h-2v2.069A8.01 8.01 0 0 0 4.069 11H2v2h2.069A8.008 8.008 0 0 0 11 19.931V22h2v-2.069A8.007 8.007 0 0 0 19.931 13H22v-2h-2.069A8.008 8.008 0 0 0 13 4.069zM12 18c-3.309 0-6-2.691-6-6s2.691-6 6-6 6 2.691 6 6-2.691 6-6 6z"></path>
-                    </svg>
-                    <h3>Location</h3>
-                </div>
-                <div class="input-group">
-                    <input type="text" id="location" placeholder="Enter the location of the issue..." required maxlength="100">
-                    <button type="button" class="location-btn" onclick="getCurrentLocation()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                            <path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3A8.994 8.994 0 0 0 13 3.06V1h-2v2.06A8.994 8.994 0 0 0 3.06 11H1v2h2.06A8.994 8.994 0 0 0 11 20.94V23h2v-2.06A8.994 8.994 0 0 0 20.94 13H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"></path>
                         </svg>
-                        Use Current Location
-                    </button>
+                        <h3>Location</h3>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="location" placeholder="Enter the location of the issue..." required maxlength="100">
+                        <button type="button" class="location-btn" onclick="getCurrentLocation()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                <path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3A8.994 8.994 0 0 0 13 3.06V1h-2v2.06A8.994 8.994 0 0 0 3.06 11H1v2h2.06A8.994 8.994 0 0 0 11 20.94V23h2v-2.06A8.994 8.994 0 0 0 20.94 13H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"></path>
+                            </svg>
+                            Use Current Location
+                        </button>
+                    </div>
                 </div>
+
                 <div class="form-section">
                     <div class="section-header">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -155,6 +161,7 @@
                         </label>
                     </div>
                 </div>
+
                 <button type="submit" class="submit-btn">Submit Report</button>
             </form>
         </div>

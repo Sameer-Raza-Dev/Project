@@ -37,7 +37,7 @@
             <div class="nav-item">
                 <a href="Contactus_Tab.html" class="nav-link">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                        <path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 0 0 1.228 0L20 9.044 20.002 18H4z"></path>
+                        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 0 0 1.228 0L20 9.044 20.002 18H4z"></path>
                     </svg>
                     <span>Contact</span>
                 </a>
@@ -57,44 +57,144 @@
     <div class="auth-container">
         <div class="auth-card">
             <div class="auth-welcome">
-                <h1>Create Account</h1>
-                <p>Already have an account?</p>
-                <a href="LoginTab.html" class="switch-auth">Login</a>
+                <div class="welcome-content">
+                    <h1>Welcome to My City</h1>
+                    <p class="welcome-text">Join our community and help make your city better. Already have an account?</p>
+                    <a href="LoginTab.html" class="switch-auth">Login</a>
+                </div>
             </div>
             <div class="auth-form">
-                <h2>Sign Up for My City</h2>
-                <form id="signupForm" onsubmit="handleSignup(event)">
+                <h2>Create Your Account</h2>
+                <div class="error-message"></div>
+                <form id="signupForm">
                     <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" id="username" required placeholder="Choose a username">
+                        <label for="firstname-input">Full Name</label>
+                        <div class="input-with-icon">
+                            <input type="text" id="firstname-input" required 
+                                placeholder="Enter your full name"
+                                pattern="^[A-Za-z]+([\s'-][A-Za-z]+)*$"
+                                minlength="2"
+                                maxlength="50"
+                                title="Please enter a valid name (letters, spaces, hyphens and apostrophes only)">
+                            <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                            <span class="validation-message"></span>
+                        </div>
                     </div>
+
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" required placeholder="Enter your email">
+                        <label for="email-input">Email Address</label>
+                        <div class="input-with-icon">
+                            <input type="email" id="email-input" required 
+                                placeholder="Enter your email"
+                                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                                title="Please enter a valid email address (e.g., user@example.com)">
+                            <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                            <span class="validation-message"></span>
+                        </div>
                     </div>
+
                     <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" required placeholder="Choose a password">
+                        <label for="password-input">Password</label>
+                        <div class="input-with-icon">
+                            <input type="password" id="password-input" required 
+                                placeholder="Enter your password"
+                                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$"
+                                title="Password must be at least 8 characters long and include uppercase, lowercase, numbers, and special characters">
+                            <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                                <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zm0 12.5c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="password-strength">
+                            <meter id="password-strength-meter" min="0" max="5" value="0"></meter>
+                            <span id="password-strength-text">Password strength</span>
+                        </div>
                     </div>
+
                     <div class="form-group">
-                        <label for="confirm-password">Confirm Password</label>
-                        <input type="password" id="confirm-password" required placeholder="Confirm your password">
+                        <label for="repeat-password-input">Confirm Password</label>
+                        <div class="input-with-icon">
+                            <input type="password" id="repeat-password-input" required 
+                                placeholder="Confirm your password">
+                            <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                                <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zm0 12.5c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label class="checkbox-container">
-                            <input type="checkbox" id="terms" required>
-                            <span class="checkmark"></span>
-                            I agree to the Terms and Conditions
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="remember-me">
+                        <label for="remember-me">Remember me</label>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">
+                            I agree to the <a href="#" class="link-primary">Terms of Service</a> and <a href="#" class="link-primary">Privacy Policy</a>
                         </label>
                     </div>
-                    <button type="submit" class="auth-button">Create Account</button>
+
+                    <button type="submit" class="submit-button">
+                        <span class="button-text">Create Account</span>
+                        <div class="button-loader"></div>
+                    </button>
                 </form>
-                <div class="divider">
-                    <span>or</span>
+
+                <div class="auth-divider">
+                    <span>or continue with</span>
                 </div>
-                <button onclick="handleGuestLogin()" class="guest-button">
-                    Continue as Guest
-                </button>
+
+                <div class="auth-options">
+                    <button type="button" class="guest-button auth-option-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                        </svg>
+                        Continue as Guest
+                    </button>
+
+                    <button type="button" class="social-button auth-option-button" data-provider="google">
+                        <img src="Images/google-icon.svg" alt="Google" width="24" height="24">
+                        Continue with Google
+                    </button>
+
+                    <button type="button" class="social-button auth-option-button" data-provider="facebook">
+                        <img src="Images/facebook-icon.svg" alt="Facebook" width="24" height="24">
+                        Continue with Facebook
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Guest Login Modal -->
+    <div id="guestModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Continue as Guest</h2>
+                <button type="button" class="modal-close" id="guest-cancel">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Enter a display name (optional)</p>
+                <div class="input-with-icon">
+                    <input type="text" id="guestName" 
+                        placeholder="Display Name"
+                        pattern="^[A-Za-z]+([\s'-][A-Za-z]+)*$"
+                        maxlength="50"
+                        title="Please enter a valid name (letters, spaces, hyphens and apostrophes only)">
+                    <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="submit-button" id="guest-continue">Continue</button>
             </div>
         </div>
     </div>

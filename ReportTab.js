@@ -69,10 +69,9 @@ function getCurrentLocation() {
 function submitReport(event) {
     event.preventDefault();
     
-    // Get user data
-    const registeredUser = JSON.parse(localStorage.getItem('users'))?.find(u => u.loggedIn);
-    const guestUser = JSON.parse(localStorage.getItem('guestUser'));
-    const username = registeredUser?.firstname || guestUser?.username || 'Anonymous';
+    // Get user data from current authentication system
+    const currentUser = JSON.parse(localStorage.getItem('currentUser') || sessionStorage.getItem('currentUser') || 'null');
+    const username = currentUser ? currentUser.firstname : 'Anonymous';
 
     // Get form data
     const description = document.getElementById('description').value;
@@ -108,10 +107,9 @@ function submitReport(event) {
         priority,
         images,
         status: 'pending',
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        isAnonymous: !currentUser // Add flag to track if report is anonymous
     };
-
-    console.log('Saving report:', report);
 
     try {
         // Save to localStorage
@@ -119,10 +117,8 @@ function submitReport(event) {
         reports.push(report);
         localStorage.setItem('reports', JSON.stringify(reports));
 
-        // Show success message
+        // Show success message and redirect
         alert('Report submitted successfully!');
-
-        // Redirect to home page
         window.location.href = 'index.html';
     } catch (error) {
         alert('Error submitting report. Please try again.');

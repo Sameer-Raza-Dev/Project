@@ -537,6 +537,28 @@ video{
     white-space: nowrap;
 }
 
+.report-username {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 500;
+}
+
+.anonymous-icon {
+    fill: #666;
+    vertical-align: middle;
+    margin-left: 4px;
+}
+
+.report-username svg {
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.report-username:hover svg {
+    opacity: 1;
+}
+
 .report-category {
     padding: 0.25rem 0.75rem;
     border-radius: 999px;

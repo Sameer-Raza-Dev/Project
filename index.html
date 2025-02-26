@@ -150,7 +150,14 @@
             container.innerHTML = filteredReports.reverse().map(report => `
                 <div class="report-card ${report.category.toLowerCase().replace(' ', '-')}">
                     <div class="report-header">
-                        <span class="report-username">${report.username}</span>
+                        <span class="report-username">
+                            ${report.isAnonymous ? 'Anonymous' : report.username}
+                            ${report.isAnonymous ? `
+                                <svg class="anonymous-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                                </svg>
+                            ` : ''}
+                        </span>
                         <span class="report-category ${report.category.toLowerCase().replace(' ', '-')}">${report.category}</span>
                         <span class="report-date">${new Date(report.timestamp).toLocaleDateString()}</span>
                     </div>
@@ -199,7 +206,7 @@
                 container.innerHTML = `
                     <div class="no-reports">
                         <h3>No Reports Found</h3>
-                        <p>No ${selectedCategory === 'all' ? '' : selectedCategory} issues have been reported yet.</p>
+                        <p>No reports available for the selected category.</p>
                     </div>
                 `;
             }
@@ -209,7 +216,7 @@
         document.getElementById('categoryFilter').addEventListener('change', loadReports);
 
         // Initial load
-        loadReports();
+        document.addEventListener('DOMContentLoaded', loadReports);
     </script>
 
     <footer>
@@ -219,7 +226,7 @@
                 <div class="about-content">
                     <div class="mission">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="about-icon">
-                            <path d="M19.649 5.286 14 8.548V2.025h-4v6.523L4.351 5.286l-2 3.464 5.649 3.262-5.649 3.262 2 3.464L10 15.477V22h4v-6.523l5.649 3.262 2-3.464-5.649-3.262 5.649-3.262z"/>
+                            <path d="M19.649 5.286 14 8.548V2.025h-4v6.523L6.586 5H4c-1.103 0-2 .897-2 2v11c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm0 14h-7.277L9 18.233V16H4V4h16v12z"/>
                         </svg>
                         <p class="highlight">Empowering Citizens, Building Better Communities</p>
                     </div>
