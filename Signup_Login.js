@@ -8,6 +8,10 @@ const password_input = document.getElementById('password-input');
 const repeat_password_input = document.getElementById('repeat-password-input');
 const error_message = document.getElementById('error-message');
 const guestButtons = document.querySelectorAll('#guestAccoutButton');
+const guestModal = document.getElementById('guestModal');
+const guestNameInput = document.getElementById('guestName');
+const guestContinueBtn = document.getElementById('guest-continue');
+const guestCancelBtn = document.getElementById('guest-cancel');
 
 // ========================
 // INITIALIZE USERS
@@ -34,6 +38,12 @@ guestButtons.forEach(button => {
     e.preventDefault();
     showGuestPopup();
   });
+});
+
+// Guest modal handlers
+guestContinueBtn?.addEventListener('click', handleGuestLogin);
+guestCancelBtn?.addEventListener('click', () => {
+  guestModal.style.display = 'none';
 });
 
 // ========================
@@ -104,86 +114,44 @@ function handleLogin() {
 }
 
 // ========================
-// GUEST ACCOUNT SYSTEM (UPDATED)
+// GUEST ACCOUNT SYSTEM
 // ========================
-
 function showGuestPopup() {
-  const modal = document.createElement('div');
-  modal.innerHTML = `
-      <div class="modal-overlay">
-          <div class="modal-content">
-              <h3>Continue as Guest</h3>
-              <input type="text" id="guest-username" placeholder="Enter username">
-              <div class="modal-buttons">
-                  <button id="guest-continue">Continue</button>
-                  <button id="guest-cancel">Cancel</button>
-              </div>
-          </div>
-      </div>
-  `;
-
-  document.body.appendChild(modal);
-
-  // Generate initial random username
-  const usernameInput = modal.querySelector('#guest-username');
-  usernameInput.value = generateRandomUsername(); // Pre-fill with random name
-
-  modal.querySelector('#guest-continue').addEventListener('click', () => {
-      const username = usernameInput.value.trim() || generateRandomUsername();
-      
-      localStorage.setItem('guestUser', JSON.stringify({
-          username,
-          loggedIn: true
-      }));
-      
-      modal.remove();
-      redirectToHome();
-  });
-
-  modal.querySelector('#guest-cancel').addEventListener('click', () => {
-      modal.remove();
-  });
+  guestModal.style.display = 'flex';
+  guestNameInput.focus();
 }
 
-function generateRandomUsername() {
-  const adjectives = ['Swift', 'Clever', 'Mystery', 'Golden', 'Silver'];
-  const nouns = ['Explorer', 'Traveler', 'Visitor', 'User', 'Guest'];
-  const randomNumber = Math.floor(Math.random() * 9000) + 1000; // 4-digit number
+function handleGuestLogin() {
+  const guestName = guestNameInput.value.trim() || generateRandomUsername();
   
-  // Randomly combine parts
-  const parts = [];
-  if (Math.random() > 0.3) parts.push(adjectives[Math.floor(Math.random() * adjectives.length)]);
-  parts.push(nouns[Math.floor(Math.random() * nouns.length)]);
-  parts.push(randomNumber);
-  
-  return parts.join('-');
+  const guestUser = {
+    firstname: guestName,
+    email: `guest_${Date.now()}@guest.com`,
+    isGuest: true,
+    loggedIn: true
+  };
+
+  users.push(guestUser);
+  localStorage.setItem('users', JSON.stringify(users));
+  redirectToHome();
 }
+
 // ========================
 // VALIDATION FUNCTIONS
 // ========================
 function validateSignup(firstname, email, password, repeatPassword) {
   const errors = [];
 
-  if (!firstname) {
-    errors.push('Firstname required');
-    firstname_input.parentElement.classList.add('incorrect');
-  }
+  if (!firstname) errors.push('Name is required');
+  if (firstname.length < 2) errors.push('Name must be at least 2 characters');
 
-  if (!validateEmail(email)) {
-    errors.push('Valid email required');
-    email_input.parentElement.classList.add('incorrect');
-  }
+  if (!email) errors.push('Email is required');
+  if (!validateEmail(email)) errors.push('Invalid email format');
 
-  if (password.length < 8) {
-    errors.push('Password must be 8+ characters');
-    password_input.parentElement.classList.add('incorrect');
-  }
+  if (!password) errors.push('Password is required');
+  if (password.length < 6) errors.push('Password must be at least 6 characters');
 
-  if (password !== repeatPassword) {
-    errors.push('Passwords don\'t match');
-    password_input.parentElement.classList.add('incorrect');
-    repeat_password_input.parentElement.classList.add('incorrect');
-  }
+  if (password !== repeatPassword) errors.push('Passwords do not match');
 
   return errors;
 }
@@ -191,15 +159,10 @@ function validateSignup(firstname, email, password, repeatPassword) {
 function validateLogin(email, password) {
   const errors = [];
 
-  if (!validateEmail(email)) {
-    errors.push('Valid email required');
-    email_input.parentElement.classList.add('incorrect');
-  }
+  if (!email) errors.push('Email is required');
+  if (!validateEmail(email)) errors.push('Invalid email format');
 
-  if (password.length === 0) {
-    errors.push('Password required');
-    password_input.parentElement.classList.add('incorrect');
-  }
+  if (!password) errors.push('Password is required');
 
   return errors;
 }
@@ -212,94 +175,96 @@ function validateEmail(email) {
 // UTILITY FUNCTIONS
 // ========================
 function generateRandomUsername() {
-  const adjectives = ['Mysterious', 'Anonymous', 'Secret', 'Incognito'];
-  const nouns = ['Visitor', 'Explorer', 'Traveler', 'User'];
-  return `${adjectives[Math.floor(Math.random() * adjectives.length)]}${nouns[Math.floor(Math.random() * nouns.length)]}${Math.floor(Math.random() * 1000)}`;
+  const adjectives = ['Happy', 'Lucky', 'Sunny', 'Clever', 'Swift', 'Bright'];
+  const nouns = ['User', 'Guest', 'Visitor', 'Friend', 'Explorer', 'Wanderer'];
+  const randomNum = Math.floor(Math.random() * 1000);
+  
+  const randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+  const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
+  
+  return `${randomAdjective}${randomNoun}${randomNum}`;
 }
 
 function redirectToHome() {
-  window.location.href = 'index.html';
+    // Update the navbar before redirecting
+    if (typeof updateNavbar === 'function') {
+        updateNavbar();
+    }
+    
+    // Small delay to ensure navbar updates
+    setTimeout(() => {
+        window.location.href = 'index.html';
+    }, 100);
 }
 
 // ========================
-// PASSWORD TOGGLE
+// PASSWORD TOGGLE FUNCTIONALITY
 // ========================
 function createPasswordToggle(inputElement) {
-  const toggle = document.createElement('button');
-  toggle.type = 'button';
-  toggle.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20">
-            <path d="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Z"/>
-        </svg>
-    `;
+    // Create wrapper if not exists
+    let wrapper = inputElement.closest('.input-group');
+    if (!wrapper) {
+        wrapper = document.createElement('div');
+        wrapper.className = 'input-group';
+        inputElement.parentNode.insertBefore(wrapper, inputElement);
+        wrapper.appendChild(inputElement);
+    }
 
-  toggle.style.cssText = `
-        position: absolute;
-        right: -40px;
-        top: 35%;
-        transform: translateY(-50%);
-        background: none;
-        border: none;
-        cursor: pointer;
-        opacity: 0.5;
-        fill: #2E2B41;
-    `;
+    // Create toggle button if not exists
+    let toggleButton = wrapper.querySelector('.password-toggle');
+    if (!toggleButton) {
+        toggleButton = document.createElement('button');
+        toggleButton.type = 'button';
+        toggleButton.className = 'password-toggle';
+        toggleButton.setAttribute('aria-label', 'Toggle password visibility');
+        wrapper.appendChild(toggleButton);
+    }
 
-  inputElement.parentElement.style.position = 'relative';
-  inputElement.parentElement.appendChild(toggle);
+    // Set initial state
+    let isVisible = false;
+    updateToggleButton();
 
-  toggle.addEventListener('click', () => {
-    const type = inputElement.type === 'password' ? 'text' : 'password';
-    inputElement.type = type;
-    toggle.innerHTML = type === 'password' ? `
-            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
-                <path d="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Z"/>
+    // Add click handler
+    toggleButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        isVisible = !isVisible;
+        inputElement.type = isVisible ? 'text' : 'password';
+        updateToggleButton();
+    });
+
+    // Update button icon based on state
+    function updateToggleButton() {
+        toggleButton.innerHTML = isVisible ? `
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                <line x1="1" y1="1" x2="23" y2="23"></line>
             </svg>
         ` : `
-            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
-                <path d="m644-428-58-58q9-47-27-88t-93-32l-58-58q17-8 34.5-12t37.5-4q75 0 127.5 52.5T660-500q0 20-4 37.5T644-428Zm128 126-58-56q38-29 67.5-63.5T832-500q-50-101-143.5-160.5T480-720q-29 0-57 4t-55 12l-62-62q41-17 84-25.5t90-8.5q151 0 269 83.5T920-500q-23 59-60.5 109.5T772-302Zm20 246L624-222q-35 11-70.5 16.5T480-200q-151 0-269-83.5T40-500q21-53 53-98.5t73-81.5L56-792l56-56 736 736-56 56ZM222-624q-29 26-53 57t-41 67q50 101 143.5 160.5T480-280q20 0 39-2.5t39-5.5l-36-38q-11 3-21 4.5t-21 1.5q-75 0-127.5-52.5T300-500q0-11 1.5-21t4.5-21l-84-82Zm319 93Zm-151 75Z"/>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
             </svg>
         `;
-  });
+    }
 }
 
 // Initialize password toggles
-if (password_input) createPasswordToggle(password_input);
-if (repeat_password_input) createPasswordToggle(repeat_password_input);
+document.addEventListener('DOMContentLoaded', () => {
+    // Add toggle to password fields
+    const passwordInputs = document.querySelectorAll('input[type="password"]');
+    passwordInputs.forEach(input => createPasswordToggle(input));
+});
 
-// ========================
-// THEME TOGGLE FUNCTIONALITY
-// ========================
+// Close modal when clicking outside
+window.addEventListener('click', (e) => {
+  if (e.target === guestModal) {
+    guestModal.style.display = 'none';
+  }
+});
 
-// Initialize theme from localStorage or default to light
-let currentTheme = localStorage.getItem('theme') || 'light';
-applyTheme(currentTheme);
-
-// Function to apply theme
-function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-}
-
-// Function to toggle theme
-function toggleTheme() {
-    currentTheme = currentTheme === 'light' ? 'dark' : 'light';
-    applyTheme(currentTheme);
-}
-
-// Add theme toggle to dropdown menu
-document.addEventListener('click', (e) => {
-    if (e.target.closest('.user-profile')) {
-        const dropdown = e.target.querySelector('.dropdown');
-        if (dropdown) {
-            dropdown.innerHTML = `
-                <button onclick="toggleTheme()">Toggle Theme</button>
-                <button onclick="handleLogout()">Logout</button>
-            `;
-            dropdown.style.display = 'block';
-        }
-    } else {
-        const dropdowns = document.querySelectorAll('.dropdown');
-        dropdowns.forEach(dropdown => dropdown.style.display = 'none');
-    }
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && guestModal.style.display === 'flex') {
+    guestModal.style.display = 'none';
+  }
 });

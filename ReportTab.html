@@ -1,110 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My City</title>
+    <title>Report Issue - My City</title>
+    <link rel="stylesheet" href="HomeTab.css">
     <link rel="stylesheet" href="ReportTab.css">
     <script src="navbar.js" defer></script>
+    <script src="reportTab.js" defer></script>
 </head>
-
 <body>
     <div class="navBar">
-        <img src="Images/Web-Logo.jpg" alt="Website Logo" id="Web-Logo">
+        <div class="nav-brand">
+            <img src="Images/Web-Logo.jpg" alt="Website Logo" id="Web-Logo">
+            <span class="brand-name">My City</span>
+        </div>
 
         <div class="navTabs">
-            <div>
-                <svg id="home_icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    style="fill: #007bff;">
-                    <path
-                        d="M12.74 2.32a1 1 0 0 0-1.48 0l-9 10A1 1 0 0 0 3 14h2v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7h2a1 1 0 0 0 1-1 1 1 0 0 0-.26-.68z">
-                    </path>
-                </svg>
-                <a href="index.html"> Home</a>
+            <div class="nav-item">
+                <a href="index.html" class="nav-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                        <path d="M12.74 2.32a1 1 0 0 0-1.48 0l-9 10A1 1 0 0 0 3 14h2v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7h2a1 1 0 0 0 1-1 1 1 0 0 0-.26-.68z"></path>
+                    </svg>
+                    <span>Home</span>
+                </a>
             </div>
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    style="fill: #007bff;">
-                    <path d="M12 9c-1.626 0-3 1.374-3 3s1.374 3 3 3 3-1.374 3-3-1.374-3-3-3z"></path>
-                    <path
-                        d="M20 5h-2.586l-2.707-2.707A.996.996 0 0 0 14 2h-4a.996.996 0 0 0-.707.293L6.586 5H4c-1.103 0-2 .897-2 2v11c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2zm-8 12c-2.71 0-5-2.29-5-5s2.29-5 5-5 5 2.29 5 5-2.29 5-5 5z">
-                    </path>
-                </svg>
-                <a href="ReportTab.html">Report an Issue</a>
+            <div class="nav-item">
+                <a href="ReportTab.html" class="nav-link active">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                        <path d="M12 9c-1.626 0-3 1.374-3 3s1.374 3 3 3 3-1.374 3-3-1.374-3-3-3z"></path>
+                        <path d="M20 5h-2.586l-2.707-2.707A.996.996 0 0 0 14 2h-4a.996.996 0 0 0-.707.293L6.586 5H4c-1.103 0-2 .897-2 2v11c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2zm-8 12c-2.71 0-5-2.29-5-5s2.29-5 5-5 5 2.29 5 5-2.29 5-5 5z"></path>
+                    </svg>
+                    <span>Report Issue</span>
+                </a>
             </div>
-            <!-- <div>
-                <a href="">📋 My Reports</a>
-                <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        style="fill: rgba(0, 0, 0, 1);">
-                        <path
-                            d="m20.487 17.14-4.065-3.696a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.085-1.39z">
-                        </path>
-                    </svg> Contact Us</a>
-            </div> -->
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    style="fill: #007bff;">
-                    <path
-                        d="m20.487 17.14-4.065-3.696a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.085-1.39z">
-                    </path>
-                </svg>
-                <a href="Contactus_Tab.html">Contact Us</a>
+            <div class="nav-item">
+                <a href="Contactus_Tab.html" class="nav-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                        <path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 0 0 1.228 0L20 9.044 20.002 18H4z"></path>
+                    </svg>
+                    <span>Contact</span>
+                </a>
             </div>
-            <div>
-                <!-- This link will transform into username -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    style="fill: #007bff;">
-                    <path
-                        d="M12 2C6.579 2 2 6.579 2 12s4.579 10 10 10 10-4.579 10-10S17.421 2 12 2zm0 5c1.727 0 3 1.272 3 3s-1.273 3-3 3c-1.726 0-3-1.272-3-3s1.274-3 3-3zm-5.106 9.772c.897-1.32 2.393-2.2 4.106-2.2h2c1.714 0 3.209.88 4.106 2.2C15.828 18.14 14.015 19 12 19s-3.828-.86-5.106-2.228z">
-                    </path>
-                </svg>
-                <a href="LoginTab.html" id="auth-link"> Login / Sign Up</a>
+        </div>
+
+        <div class="nav-auth">
+            <a href="LoginTab.html" class="auth-link login">Login</a>
+            <a href="SignupTab.html" class="auth-link signup">Sign Up</a>
+        </div>
+
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <span class="menu-icon"></span>
+        </button>
+    </div>
+
+    <div class="page-container">
+        <div class="page-header">
+            <h1>Report an Issue</h1>
+            <p>Help us make our city better by reporting issues in your area</p>
+        </div>
+
+        <div class="issues-grid">
+            <div class="issue-card">
+                <div class="issue-card-image">
+                    <img src="Images/Road_Issue.jpg" alt="Road Issue" />
+                </div>
+                <div class="issue-card-content">
+                    <h2>Road Issue</h2>
+                    <p>Report damaged roads, potholes, and uneven surfaces that could cause accidents or inconvenience for drivers and pedestrians.</p>
+                    <div class="issue-card-features">
+                        <span class="feature">🚧 Infrastructure</span>
+                        <span class="feature">🚗 Transportation</span>
+                    </div>
+                    <a href="Road_Issue.html" class="report-button">Report Road Issue</a>
+                </div>
+            </div>
+
+            <div class="issue-card">
+                <div class="issue-card-image">
+                    <img src="Images/Electricity_Issue.jpg" alt="Electricity Issue" />
+                </div>
+                <div class="issue-card-content">
+                    <h2>Electricity Issue</h2>
+                    <p>Report power outages, broken streetlights, or exposed electrical wires that pose safety hazards in your community.</p>
+                    <div class="issue-card-features">
+                        <span class="feature">⚡ Power</span>
+                        <span class="feature">💡 Lighting</span>
+                    </div>
+                    <a href="Electricity_Issue.html" class="report-button">Report Electricity Issue</a>
+                </div>
+            </div>
+
+            <div class="issue-card">
+                <div class="issue-card-image">
+                    <img src="Images/Garbage.jpg" alt="Garbage Issue" />
+                </div>
+                <div class="issue-card-content">
+                    <h2>Garbage Issue</h2>
+                    <p>Report improper waste disposal, missed collections, or overflowing bins to maintain a clean and healthy environment.</p>
+                    <div class="issue-card-features">
+                        <span class="feature">🗑️ Waste</span>
+                        <span class="feature">♻️ Sanitation</span>
+                    </div>
+                    <a href="Garbage_Issue.html" class="report-button">Report Garbage Issue</a>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="container">
-        <div class="card">
-            <h1 class="card-title">Road Issue</h1>
-            <img src="Images/Road_Issue.jpg" alt="Card Image" />
-            <p>
-                Damaged roads, potholes, and uneven surfaces can cause accidents and
-                inconvenience for drivers and pedestrians. If you notice a road issue
-                in your area, report it to help ensure safer and smoother travel for
-                everyone.
-            </p>
-            <a href="Road_Issue.html" id="reportButton">
-                <button>Report an Issue</button>
-            </a>
-        </div>
-        <div class="card">
-            <h1 class="card-title">Electricity Issue</h1>
-            <img src="Images/Electricity_Issue.jpg" alt="Card Image" />
-            <p>
-                Frequent power outages, broken streetlights, or exposed electrical
-                wires can pose safety hazards and disrupt daily life. Report any
-                electricity-related issues to help maintain a reliable and secure
-                power supply in your community.
-            </p>
-            <a href="Electricity_Issue.html" id="reportButton">
-                <button>Report an Issue</button>
-            </a>
-        </div>
-        <div class="card">
-            <h1 class="card-title">Garbage Issue</h1>
-            <img src="Images/Garbage.jpg" alt="Card Image" />
-            <p>
-                Uncollected waste, overflowing bins, or illegal dumping can lead to
-                pollution and health risks. If you spot garbage-related problems in
-                your neighborhood, report them to keep your surroundings
-                clean and hygienic.
-            </p>
-            <a href="Garbage_Issue.html" id="reportButton">
-                <button>Report an Issue</button>
-            </a>
-        </div>
-    </div>
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav">
+        <a href="index.html" class="mobile-nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M12.74 2.32a1 1 0 0 0-1.48 0l-9 10A1 1 0 0 0 3 14h2v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7h2a1 1 0 0 0 1-1 1 1 0 0 0-.26-.68z"></path>
+            </svg>
+            <span>Home</span>
+        </a>
+        <a href="ReportTab.html" class="mobile-nav-item active">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M12 9c-1.626 0-3 1.374-3 3s1.374 3 3 3 3-1.374 3-3-1.374-3-3-3z"></path>
+                <path d="M20 5h-2.586l-2.707-2.707A.996.996 0 0 0 14 2h-4a.996.996 0 0 0-.707.293L6.586 5H4c-1.103 0-2 .897-2 2v11c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2zm-8 12c-2.71 0-5-2.29-5-5s2.29-5 5-5 5 2.29 5 5-2.29 5-5 5z"></path>
+            </svg>
+            <span>Report</span>
+        </a>
+        <a href="Contactus_Tab.html" class="mobile-nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 0 0 1.228 0L20 9.044 20.002 18H4z"></path>
+            </svg>
+            <span>Contact</span>
+        </a>
+    </nav>
 </body>
-
 </html>

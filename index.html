@@ -1,178 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My City</title>
+    <title>My City - Report City Issues</title>
     <link rel="stylesheet" href="HomeTab.css">
     <script src="navbar.js" defer></script>
 </head>
-
 <body>
     <div class="navBar">
-        <img src="Images/Web-Logo.jpg" alt="Website Logo" id="Web-Logo">
+        <div class="nav-brand">
+            <img src="Images/Web-Logo.jpg" alt="Website Logo" id="Web-Logo">
+            <span class="brand-name">My City</span>
+        </div>
 
         <div class="navTabs">
-            <div>
-                <svg id="home_icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    style="fill: #007bff;;">
-                    <path
-                        d="M12.74 2.32a1 1 0 0 0-1.48 0l-9 10A1 1 0 0 0 3 14h2v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7h2a1 1 0 0 0 1-1 1 1 0 0 0-.26-.68z">
-                    </path>
-                </svg>
-                <a href="index.html"> Home</a>
+            <div class="nav-item">
+                <a href="index.html" class="nav-link active">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                        <path d="M12.74 2.32a1 1 0 0 0-1.48 0l-9 10A1 1 0 0 0 3 14h2v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7h2a1 1 0 0 0 1-1 1 1 0 0 0-.26-.68z"></path>
+                    </svg>
+                    <span>Home</span>
+                </a>
             </div>
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    style="fill: #007bff;">
-                    <path d="M12 9c-1.626 0-3 1.374-3 3s1.374 3 3 3 3-1.374 3-3-1.374-3-3-3z"></path>
-                    <path
-                        d="M20 5h-2.586l-2.707-2.707A.996.996 0 0 0 14 2h-4a.996.996 0 0 0-.707.293L6.586 5H4c-1.103 0-2 .897-2 2v11c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2zm-8 12c-2.71 0-5-2.29-5-5s2.29-5 5-5 5 2.29 5 5-2.29 5-5 5z">
-                    </path>
-                </svg>
-                <a href="ReportTab.html">Report an Issue</a>
+            <div class="nav-item">
+                <a href="ReportTab.html" class="nav-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                        <path d="M12 9c-1.626 0-3 1.374-3 3s1.374 3 3 3 3-1.374 3-3-1.374-3-3-3z"></path>
+                        <path d="M20 5h-2.586l-2.707-2.707A.996.996 0 0 0 14 2h-4a.996.996 0 0 0-.707.293L6.586 5H4c-1.103 0-2 .897-2 2v11c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2zm-8 12c-2.71 0-5-2.29-5-5s2.29-5 5-5 5 2.29 5 5-2.29 5-5 5z"></path>
+                    </svg>
+                    <span>Report Issue</span>
+                </a>
             </div>
-            <!-- <div>
-                <a href="">📋 My Reports</a>
-                <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        style="fill: rgba(0, 0, 0, 1);">
-                        <path
-                            d="m20.487 17.14-4.065-3.696a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.085-1.39z">
-                        </path>
-                    </svg> Contact Us</a>
-            </div> -->
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    style="fill: #007bff;">
-                    <path
-                        d="m20.487 17.14-4.065-3.696a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.085-1.39z">
-                    </path>
-                </svg>
-                <a href="Contactus_Tab.html">Contact Us</a>
+            <div class="nav-item">
+                <a href="Contactus_Tab.html" class="nav-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                        <path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 0 0 1.228 0L20 9.044 20.002 18H4z"></path>
+                    </svg>
+                    <span>Contact</span>
+                </a>
             </div>
-            <div>
-                <!-- This link will transform into username -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    style="fill: #007bff;">
-                    <path
-                        d="M12 2C6.579 2 2 6.579 2 12s4.579 10 10 10 10-4.579 10-10S17.421 2 12 2zm0 5c1.727 0 3 1.272 3 3s-1.273 3-3 3c-1.726 0-3-1.272-3-3s1.274-3 3-3zm-5.106 9.772c.897-1.32 2.393-2.2 4.106-2.2h2c1.714 0 3.209.88 4.106 2.2C15.828 18.14 14.015 19 12 19s-3.828-.86-5.106-2.228z">
-                    </path>
-                </svg>
-                <a href="LoginTab.html" id="auth-link"> Login / Sign Up</a>
+        </div>
+
+        <div class="nav-auth">
+            <a href="LoginTab.html" class="auth-link login">Login</a>
+            <a href="SignupTab.html" class="auth-link signup">Sign Up</a>
+        </div>
+
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+
+    <div class="hero-section">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Make Your City Better with One Click</h1>
+                <p>Report road, garbage, and electricity issues instantly from your phone. Our streamlined process makes it simple:</p>
+                <ul class="hero-features">
+                    <li>📸 Capture a photo of the problem</li>
+                    <li>📝 Add a brief description</li>
+                    <li>📍 Share the location</li>
+                    <li>📱 Provide your contact details</li>
+                </ul>
+                <p class="hero-cta">Your report is instantly sent to the City Department Office for quick action!</p>
+                <a href="ReportTab.html" class="cta-button">Report an Issue</a>
+            </div>
+            <div class="hero-image">
+                <img src="Images/phone.png" alt="Mobile app interface" class="phone-mockup">
             </div>
         </div>
     </div>
 
-    <div class="section1">
-        <img src="Images/vecteezy_dark-blue-modern-background-for-design-geometric-shapes_24100206.jpg" id="imback">r
-        <div class="content">
-            <div class="text">
-                <h1>Save Your City With Your Phone</h1>
-                <p id="ph">Now You Can Report On Road, Garbage, and Electricty Issues With Your Phone. Very Simple
-                    Way Of Report Submit
-                    Capture Problem Photo, Add Description About Problem, Add location, and Your Phone Number Submit
-                    Report.<br />When You Submit Your Report. Your Report Notification Imediently Sent In City
-                    Department Office.</p>
+    <div class="categories-section">
+        <h2>Report Categories</h2>
+        <p class="section-description">We handle three main categories of city issues:</p>
+        
+        <div class="category-cards">
+            <a href="Road_Issue.html" class="category-card">
+                <div class="card-icon">🛣️</div>
+                <h3>Road Issues</h3>
+                <p>Report potholes, damaged roads, or traffic signal problems</p>
+            </a>
+            <a href="Garbage_Issue.html" class="category-card">
+                <div class="card-icon">🗑️</div>
+                <h3>Garbage Issues</h3>
+                <p>Report improper waste disposal or collection problems</p>
+            </a>
+            <a href="Electricity_Issue.html" class="category-card">
+                <div class="card-icon">⚡</div>
+                <h3>Electrical Issues</h3>
+                <p>Report power outages or electrical infrastructure problems</p>
+            </a>
+        </div>
+    </div>
+
+    <div class="video-section">
+        <h2>See How We Work</h2>
+        <div class="video-grid">
+            <div class="video-card">
+                <video src="Video/Road.mp4" autoplay muted loop></video>
+                <h3>Road Maintenance</h3>
+                <p>Quick response to road repair requests</p>
             </div>
-            <div class="img"> <img src="Images/phone.png" alt="" id="img1"></div>
+            <div class="video-card">
+                <video src="Video/Garbage.mp4" autoplay muted loop></video>
+                <h3>Waste Management</h3>
+                <p>Efficient garbage collection and disposal</p>
+            </div>
+            <div class="video-card">
+                <video src="Video/Electric.mp4" autoplay muted loop></video>
+                <h3>Electrical Services</h3>
+                <p>Rapid response to power-related issues</p>
+            </div>
         </div>
     </div>
 
-
-    <div class="lowerl">
-        <h4>Our Web Provide to Citizions Easy Way of Reports of their's City Issues.</h4>
-        <p id="h4p">We Devide Reports In 3 Catagories.</p>
-        <hr />
-        <ul>
-            <li>Road Issue</li>
-            <li>Garbage Issue</li>
-            <li>Electric Issue</li>
-        </ul>
-    </div>
-    <!---------- End Header Section--------->
-
-    <!---------- Start Center Section--------->
-    <section class="center">
-        <div class="road"><h2>Reparing Road</h2><video src="Video/Road.mp4" autoplay muted loop type="mp4/video"></video></div>
-        <div class="electricity"><video src="Video/Garbage.mp4" autoplay muted loop type="mp4/video"></video></div>
-        <div class="garbage"><video src="Video/Electric.mp4" autoplay muted loop type="mp4/video"></video></div>
-    </section>
-    <!---------- End Center Section--------->
-
-    <!-----------Start Main Section--------->
-    <h2>Show Recently Reports ON Deshboard</h2>
-        <div class="Reports">
-            <p id="p2">Recently 7 Days Reports</p>
+    <div class="reports-section">
+        <h2>Recent Reports</h2>
+        <div class="reports-header">
+            <div class="filters">
+                <select id="categoryFilter">
+                    <option value="all">All Categories</option>
+                    <option value="road">Road Issues</option>
+                    <option value="garbage">Garbage Issues</option>
+                    <option value="electrical">Electrical Issues</option>
+                </select>
+            </div>
         </div>
-    <!-----------End Main Section--------->
 
-
-    <div class="reports-container" id="reportsContainer">
-        <!-- Reports will be dynamically added here -->
+        <div class="reports-container" id="reportsContainer">
+            <!-- Reports will be added here dynamically -->
+        </div>
     </div>
 
     <script>
-        // Add this to Home_Tab.html before closing </body>
-        document.addEventListener('DOMContentLoaded', () => {
-            loadReports();
-        });
-
         function loadReports() {
-            const reports = JSON.parse(localStorage.getItem('reports')) || [];
             const container = document.getElementById('reportsContainer');
+            const reports = JSON.parse(localStorage.getItem('reports')) || [];
+            const selectedCategory = document.getElementById('categoryFilter').value;
 
-            container.innerHTML = reports.reverse().map(report => `
-                <div class="report-card">
+            // Filter reports based on category
+            const filteredReports = selectedCategory === 'all' 
+                ? reports 
+                : reports.filter(report => report.category.toLowerCase().includes(selectedCategory));
+
+            container.innerHTML = filteredReports.reverse().map(report => `
+                <div class="report-card ${report.category.toLowerCase().replace(' ', '-')}">
                     <div class="report-header">
-                        <div class="report-username">${report.username}</div>
-                        <div class="report-category">${report.category}</div>
+                        <span class="report-username">${report.username}</span>
+                        <span class="report-category ${report.category.toLowerCase().replace(' ', '-')}">${report.category}</span>
+                        <span class="report-date">${new Date(report.timestamp).toLocaleDateString()}</span>
                     </div>
+                    
                     ${report.images.length ? `
                     <div class="report-images">
-                        ${report.images.map(img => `<img src="${img}">`).join('')}
+                        ${report.images.map(img => `<img src="${img}" alt="Report Image">`).join('')}
                     </div>` : ''}
-                    <h3>About Issue</h3>
-                    <div class="report-content">${report.description}</div>
-                    <h3>Location</h3>
-                    <div class="report-location">📍 ${report.location}</div>
-                    ${report.phone ? `<div class=""><h3>Phone Number</h3></div>` : ''}
-                    ${report.phone ? `<div class="report-phone">📞 ${report.phone}</div>` : ''}
+                    
+                    <div class="report-details">
+                        <div class="report-section">
+                            <h3>Issue Description</h3>
+                            <div class="report-content">${report.description}</div>
+                        </div>
+                        
+                        <div class="report-section">
+                            <h3>Location</h3>
+                            <div class="report-location">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/>
+                                </svg>
+                                <span class="report-location-text">${report.location || 'Location not provided'}</span>
+                            </div>
+                        </div>
+
+                        <div class="report-section">
+                            <h3>Priority Level</h3>
+                            <div class="report-priority ${report.priority}">
+                                ${report.priority.charAt(0).toUpperCase() + report.priority.slice(1)}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="report-footer">
+                        <div class="status-bar">
+                            <div class="status-indicator status-${report.status || 'pending'}"></div>
+                            <span class="status-text">${report.status ? report.status.charAt(0).toUpperCase() + report.status.slice(1) : 'Pending'}</span>
+                        </div>
+                        <span class="report-timestamp">${new Date(report.timestamp).toLocaleTimeString()}</span>
+                    </div>
                 </div>
             `).join('');
+
+            // No reports message
+            if (filteredReports.length === 0) {
+                container.innerHTML = `
+                    <div class="no-reports">
+                        <h3>No Reports Found</h3>
+                        <p>No ${selectedCategory === 'all' ? '' : selectedCategory} issues have been reported yet.</p>
+                    </div>
+                `;
+            }
         }
+
+        // Add event listener for category filter
+        document.getElementById('categoryFilter').addEventListener('change', loadReports);
+
+        // Initial load
+        loadReports();
     </script>
 
     <footer>
         <div class="Content">
             <div class="about">
-                <h3>About Us</h3>
-                <p>At my City webpage/website, we<br />are providing a platform for peoples,<br />where they were
-                    submit<br />
-                    applications/complsind of their problem likes; road issues <br />electricity issues or garbage
-                    issues.<br />so keep contact with us, we are here for you.</p>
+                <h3>About My City</h3>
+                <div class="about-content">
+                    <div class="mission">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="about-icon">
+                            <path d="M19.649 5.286 14 8.548V2.025h-4v6.523L4.351 5.286l-2 3.464 5.649 3.262-5.649 3.262 2 3.464L10 15.477V22h4v-6.523l5.649 3.262 2-3.464-5.649-3.262 5.649-3.262z"/>
+                        </svg>
+                        <p class="highlight">Empowering Citizens, Building Better Communities</p>
+                    </div>
+                    <p class="about-description">My City is your direct line to city services. We're revolutionizing how citizens interact with their local government, making it easier than ever to report and track urban issues. From road repairs to waste management, we ensure your voice is heard and your concerns are addressed.</p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"/>
+                                <path d="M9.999 13.587 7.7 11.292l-1.412 1.416 3.713 3.705 6.706-6.706-1.414-1.414z"/>
+                            </svg>
+                            <span>24/7 Issue Reporting</span>
+                        </div>
+                        <div class="feature">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"/>
+                                <path d="M13 7h-2v5.414l3.293 3.293 1.414-1.414L13 11.586z"/>
+                            </svg>
+                            <span>Real-time Updates</span>
+                        </div>
+                        <div class="feature">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20 2H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h3v3.767L13.277 18H20c1.103 0 2-.897 2-2V4c0-1.103-.897-2-2-2zm0 14h-7.277L9 18.233V16H4V4h16v12z"/>
+                            </svg>
+                            <span>Community Feedback</span>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="contact">
-                <h3>Contact info</h3>
-                <p>Phone: +923298974626 <br />
-                    Email: mycitymithi@gmail.com<br />
-                    Address: Near Al-Mehdi Hospital,<br />
-                    Mithi Sindh Pakistan</p>
+                <h3>Contact Info</h3>
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 0 0 1.228 0L20 9.044 20.002 18H4z"/>
+                    </svg>
+                    mycitymithi@gmail.com
+                </p>
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 10.999h2C22 5.869 18.127 2 12.99 2v2C17.052 4 20 6.943 20 10.999z"></path>
+                        <path d="M13 8c2.103 0 3 .897 3 3h2c0-3.225-1.775-5-5-5v2zm3.422 5.443a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a1 1 0 0 0-.086-1.391l-4.064-3.696z"></path>
+                    </svg>
+                    +923298974626
+                </p>
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/>
+                    </svg>
+                    Near to Your Heart
+                </p>
             </div>
             <div class="follow">
-                <h3>Follow Us</h3><a href=""><img src="Images/whatsapp.png" alt="whatsapp" title="whatsapp" id="img"></a>
-                <a href=""><img src="Images/facebook.png" alt="facebook" title="facebook" id="img"></a>
-                <a href=""><img src="Images/Insta.png" alt="instagram" title="instagram" id="img"></a>
-                <a href=""><img src="Images/whatsapp.png" alt="Youtube" title="youtube" id="img"></a><a href="Contactus/Contactus_Tab.html"><button id="button">More Details</button></a>
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="WhatsApp">
+                        <img src="Images/whatsapp.png" alt="WhatsApp" title="Connect on WhatsApp">
+                    </a>
+                    <a href="#" aria-label="Facebook">
+                        <img src="Images/facebook.png" alt="Facebook" title="Follow us on Facebook">
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <img src="Images/Insta.png" alt="Instagram" title="Follow us on Instagram">
+                    </a>
+                    <a href="#" aria-label="YouTube">
+                        <img src="Images/whatsapp.png" alt="YouTube" title="Subscribe to our YouTube">
+                    </a>
+                </div>
+                <a href="Contactus_Tab.html" class="contact-btn">
+                    <button id="button">Contact Us</button>
+                </a>
             </div>
             <div class="develop">
-                <h3>Developed by</h3>
+                <h3>Developed By</h3>
+                <p>Created with ❤️ by the My City Team</p>
+                <p>Committed to serving our community</p>
             </div>
         </div>
         <div class="end">
-            <p>© 2025 My City , Gibce Mithi. All rights reserved</p>
+            <p> 2025 My City , Gibce Mithi. All rights reserved</p>
         </div>
     </footer>
+    
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav">
+        <a href="index.html" class="mobile-nav-item active">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M12.74 2.32a1 1 0 0 0-1.48 0l-9 10A1 1 0 0 0 3 14h2v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7h2a1 1 0 0 0 1-1 1 1 0 0 0-.26-.68z"></path>
+            </svg>
+            <span>Home</span>
+        </a>
+        <a href="ReportTab.html" class="mobile-nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M20 5h-2.586l-2.707-2.707A.996.996 0 0 0 14 2h-4a.996.996 0 0 0-.707.293L6.586 5H4c-1.103 0-2 .897-2 2v11c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2zm-8 12c-2.71 0-5-2.29-5-5s2.29-5 5-5 5 2.29 5 5-2.29 5-5 5z"></path>
+            </svg>
+            <span>Report</span>
+        </a>
+        <a href="Contactus_Tab.html" class="mobile-nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 0 0 1.228 0L20 9.044 20.002 18H4z"></path>
+            </svg>
+            <span>Contact</span>
+        </a>
+        <a href="LoginTab.html" class="mobile-nav-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"></path>
+                <path d="M11 11h2v6h-2zm0-4h2v2h-2z"></path>
+            </svg>
+            <span>Account</span>
+        </a>
+    </nav>
 </body>
 
 </html>
