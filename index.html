@@ -21,7 +21,7 @@
                         d="M12.74 2.32a1 1 0 0 0-1.48 0l-9 10A1 1 0 0 0 3 14h2v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7h2a1 1 0 0 0 1-1 1 1 0 0 0-.26-.68z">
                     </path>
                 </svg>
-                <a href="HomeTab.html"> Home</a>
+                <a href="index.html"> Home</a>
             </div>
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -31,7 +31,7 @@
                         d="M20 5h-2.586l-2.707-2.707A.996.996 0 0 0 14 2h-4a.996.996 0 0 0-.707.293L6.586 5H4c-1.103 0-2 .897-2 2v11c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V7c0-1.103-.897-2-2-2zm-8 12c-2.71 0-5-2.29-5-5s2.29-5 5-5 5 2.29 5 5-2.29 5-5 5z">
                     </path>
                 </svg>
-                <a href="Report_an-Issue/ReportTab.html">Report an Issue</a>
+                <a href="ReportTab.html">Report an Issue</a>
             </div>
             <!-- <div>
                 <a href="">📋 My Reports</a>
@@ -49,7 +49,7 @@
                         d="m20.487 17.14-4.065-3.696a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.085-1.39z">
                     </path>
                 </svg>
-                <a href="Contactus/Contactus_Tab.html">Contact Us</a>
+                <a href="Contactus_Tab.html">Contact Us</a>
             </div>
             <div>
                 <!-- This link will transform into username -->
@@ -59,17 +59,61 @@
                         d="M12 2C6.579 2 2 6.579 2 12s4.579 10 10 10 10-4.579 10-10S17.421 2 12 2zm0 5c1.727 0 3 1.272 3 3s-1.273 3-3 3c-1.726 0-3-1.272-3-3s1.274-3 3-3zm-5.106 9.772c.897-1.32 2.393-2.2 4.106-2.2h2c1.714 0 3.209.88 4.106 2.2C15.828 18.14 14.015 19 12 19s-3.828-.86-5.106-2.228z">
                     </path>
                 </svg>
-                <a href="Login_Signup/Login/LoginTab.html" id="auth-link"> Login / Sign Up</a>
+                <a href="LoginTab.html" id="auth-link"> Login / Sign Up</a>
             </div>
         </div>
     </div>
+
+    <div class="section1">
+        <img src="Images/vecteezy_dark-blue-modern-background-for-design-geometric-shapes_24100206.jpg" id="imback">r
+        <div class="content">
+            <div class="text">
+                <h1>Save Your City With Your Phone</h1>
+                <p id="ph">Now You Can Report On Road, Garbage, and Electricty Issues With Your Phone. Very Simple
+                    Way Of Report Submit
+                    Capture Problem Photo, Add Description About Problem, Add location, and Your Phone Number Submit
+                    Report.<br />When You Submit Your Report. Your Report Notification Imediently Sent In City
+                    Department Office.</p>
+            </div>
+            <div class="img"> <img src="Images/phone.png" alt="" id="img1"></div>
+        </div>
+    </div>
+
+
+    <div class="lowerl">
+        <h4>Our Web Provide to Citizions Easy Way of Reports of their's City Issues.</h4>
+        <p id="h4p">We Devide Reports In 3 Catagories.</p>
+        <hr />
+        <ul>
+            <li>Road Issue</li>
+            <li>Garbage Issue</li>
+            <li>Electric Issue</li>
+        </ul>
+    </div>
+    <!---------- End Header Section--------->
+
+    <!---------- Start Center Section--------->
+    <section class="center">
+        <div class="road"><h2>Reparing Road</h2><video src="Video/Road.mp4" autoplay muted loop type="mp4/video"></video></div>
+        <div class="electricity"><video src="Video/Garbage.mp4" autoplay muted loop type="mp4/video"></video></div>
+        <div class="garbage"><video src="Video/Electric.mp4" autoplay muted loop type="mp4/video"></video></div>
+    </section>
+    <!---------- End Center Section--------->
+
+    <!-----------Start Main Section--------->
+    <h2>Show Recently Reports ON Deshboard</h2>
+        <div class="Reports">
+            <p id="p2">Recently 7 Days Reports</p>
+        </div>
+    <!-----------End Main Section--------->
+
 
     <div class="reports-container" id="reportsContainer">
         <!-- Reports will be dynamically added here -->
     </div>
 
     <script>
-        // Add this to HomeTab.html before closing </body>
+        // Add this to Home_Tab.html before closing </body>
         document.addEventListener('DOMContentLoaded', () => {
             loadReports();
         });
@@ -116,12 +160,10 @@
                     Mithi Sindh Pakistan</p>
             </div>
             <div class="follow">
-                <h3>Follow Us</h3>
-                <a href=""><img src="Images/Home_Tab_Footer/whatsapp.png" alt="whatsapp" title="whatsapp" id="img"></a>
-                <a href=""><img src="Images/Home_Tab_Footer/facebook.png" alt="facebook" title="facebook" id="img"></a>
-                <a href=""><img src="Images/Home_Tab_Footer/Insta.png" alt="instagram" title="instagram" id="img"></a>
-                <a href=""><img src="Images/Home_Tab_Footer/Youtube.png" alt="Youtube" title="youtube" id="img"></a>
-                <a href="Contactus/Contactus_Tab.html"><button id="button">More Details</button></a>
+                <h3>Follow Us</h3><a href=""><img src="Images/whatsapp.png" alt="whatsapp" title="whatsapp" id="img"></a>
+                <a href=""><img src="Images/facebook.png" alt="facebook" title="facebook" id="img"></a>
+                <a href=""><img src="Images/Insta.png" alt="instagram" title="instagram" id="img"></a>
+                <a href=""><img src="Images/whatsapp.png" alt="Youtube" title="youtube" id="img"></a><a href="Contactus/Contactus_Tab.html"><button id="button">More Details</button></a>
             </div>
             <div class="develop">
                 <h3>Developed by</h3>
