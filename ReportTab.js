@@ -1,3 +1,13 @@
+// Check authentication status
+function checkAuth() {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser') || sessionStorage.getItem('currentUser') || 'null');
+    if (!currentUser) {
+        window.location.href = 'LoginTab.html';
+        return false;
+    }
+    return true;
+}
+
 function isMobile() {
     return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 }
@@ -24,7 +34,19 @@ function handleImage(input) {
     if (input.files && input.files.length > 0) {
         let previewContainer = document.getElementById('image-preview');
         previewContainer.innerHTML = "";
+        
+        // Check file sizes
+        const maxSize = 5 * 1024 * 1024; // 5MB
         let files = Array.from(input.files).slice(0, 5); // Limit to 5 images
+        
+        for (const file of files) {
+            if (file.size > maxSize) {
+                alert(`File ${file.name} is too large. Maximum size is 5MB.`);
+                input.value = ''; // Clear the input
+                return;
+            }
+        }
+        
         files.forEach(file => {
             let reader = new FileReader();
             reader.onload = function (e) {
@@ -50,8 +72,7 @@ function getCurrentLocation() {
                 fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`)
                     .then(response => response.json())
                     .then(data => {
-                        const address = data.display_name;
-                        document.getElementById('location').value = address;
+                        document.getElementById('location').value = data.display_name;
                     })
                     .catch(error => {
                         document.getElementById('location').value = `${latitude}, ${longitude}`;
@@ -68,50 +89,58 @@ function getCurrentLocation() {
 
 function submitReport(event) {
     event.preventDefault();
-    
-    // Get user data from current authentication system
-    const currentUser = JSON.parse(localStorage.getItem('currentUser') || sessionStorage.getItem('currentUser') || 'null');
-    const username = currentUser ? currentUser.firstname : 'Anonymous';
 
-    // Get form data
-    const description = document.getElementById('description').value;
-    const location = document.getElementById('location').value.trim();
-    const category = document.getElementById('category').value;
-    
-    // Get priority level
-    const priorityInputs = document.getElementsByName('priority');
-    let priority = '';
-    for (const input of priorityInputs) {
-        if (input.checked) {
-            priority = input.value;
-            break;
-        }
+    // Show loading state
+    const submitButton = event.target.querySelector('button[type="submit"]');
+    if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Submitting...';
     }
-    
-    // Validate required fields
-    if (!description || !location || !priority) {
-        alert('Please fill in all required fields');
-        return;
-    }
-
-    // Get images
-    const images = Array.from(document.querySelectorAll('#image-preview img'))
-                       .map(img => img.src);
-
-    // Create report object
-    const report = {
-        username,
-        category,
-        description,
-        location,
-        priority,
-        images,
-        status: 'pending',
-        timestamp: new Date().toISOString(),
-        isAnonymous: !currentUser // Add flag to track if report is anonymous
-    };
 
     try {
+        // Get user data from current authentication system
+        const currentUser = JSON.parse(localStorage.getItem('currentUser') || sessionStorage.getItem('currentUser') || 'null');
+        const username = currentUser ? currentUser.firstname : 'Anonymous';
+
+        // Get form data
+        const description = document.getElementById('description').value;
+        const location = document.getElementById('location').value.trim();
+        const category = document.getElementById('category').value;
+        
+        // Get priority level
+        const priorityInputs = document.getElementsByName('priority');
+        let priority = '';
+        for (const input of priorityInputs) {
+            if (input.checked) {
+                priority = input.value;
+                break;
+            }
+        }
+        
+        // Validate required fields
+        if (!description || !location || !priority) {
+            alert('Please fill in all required fields');
+            return;
+        }
+
+        // Get images
+        const images = Array.from(document.querySelectorAll('#image-preview img'))
+                           .map(img => img.src);
+
+        // Create report object
+        const report = {
+            username,
+            category,
+            description,
+            location,
+            priority,
+            images,
+            status: 'pending',
+            timestamp: new Date().toISOString(),
+            isAnonymous: !currentUser,
+            userId: currentUser ? currentUser.id : null
+        };
+
         // Save to localStorage
         const reports = JSON.parse(localStorage.getItem('reports')) || [];
         reports.push(report);
@@ -123,6 +152,12 @@ function submitReport(event) {
     } catch (error) {
         alert('Error submitting report. Please try again.');
         console.error('Error saving report:', error);
+    } finally {
+        // Reset button state
+        if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = 'Submit Report';
+        }
     }
 }
 
@@ -135,12 +170,15 @@ function updateCharCount() {
     }
 }
 
-// Add event listener when DOM is loaded
+// Add event listeners when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize character counter
     const description = document.getElementById('description');
     if (description) {
         description.addEventListener('input', updateCharCount);
-        // Initialize counter
         updateCharCount();
     }
+
+    // Check authentication on page load
+    checkAuth();
 });

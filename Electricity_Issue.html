@@ -200,5 +200,15 @@
             <span>Account</span>
         </a>
     </nav>
+
+    <script>
+        // Check authentication on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser') || sessionStorage.getItem('currentUser') || 'null');
+            if (!currentUser) {
+                window.location.href = 'LoginTab.html?redirect=Electricity_Issue.html';
+            }
+        });
+    </script>
 </body>
 </html>

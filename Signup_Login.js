@@ -149,6 +149,7 @@ loginForm?.addEventListener('submit', async (e) => {
 
         // Login successful
         const userData = {
+            id: user.id,
             firstname: user.firstname,
             email: user.email,
             createdAt: user.createdAt,
@@ -164,7 +165,7 @@ loginForm?.addEventListener('submit', async (e) => {
 
         showSuccess('Login successful! Redirecting...');
         updateNavbar(user.firstname);
-        setTimeout(() => window.location.href = 'index.html', 1500);
+        setTimeout(() => handleRedirect(), 1500);
 
     } catch (error) {
         showError(error.message);
@@ -176,6 +177,17 @@ loginForm?.addEventListener('submit', async (e) => {
         }
     }
 });
+
+// Handle redirect after login
+function handleRedirect() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const redirect = urlParams.get('redirect');
+    if (redirect) {
+        window.location.href = redirect;
+    } else {
+        window.location.href = 'index.html';
+    }
+}
 
 // Password visibility toggle
 const togglePasswordBtns = document.querySelectorAll('.toggle-password');
